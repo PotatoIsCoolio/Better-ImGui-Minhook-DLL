@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ImGuiMinhookProject/ImGuiMinhookProject.vcxproj" Id="9f6b8407-e848-4925-8724-f74d22c92ad9" />
+</Solution>
