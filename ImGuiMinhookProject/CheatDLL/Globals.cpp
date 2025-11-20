@@ -17,6 +17,11 @@ namespace ImGuiProject::Globals
 		float FovSlider; // Just another example
 	}
 
+    namespace Render
+    {
+        int CurrentSection;
+    }
+
     namespace Settings
     {
         int CurrentSeletedTheme = 0;

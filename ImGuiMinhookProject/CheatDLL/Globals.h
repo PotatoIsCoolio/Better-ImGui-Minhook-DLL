@@ -18,6 +18,11 @@ namespace ImGuiProject::Config
 
 namespace ImGuiProject::Globals
 {
+	namespace Render
+	{
+		extern int CurrentSection;
+	}
+
 	namespace Test // This could be called like Movement or like Combat. Whatever its just the type of variable its gonna be used for.
 	{
 		extern bool CheckboxBool;

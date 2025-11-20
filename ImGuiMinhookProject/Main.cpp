@@ -9,18 +9,7 @@
 #include <dxgi.h>
 #include <thread>
 
-typedef HRESULT(__stdcall* Present) (IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
-typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
-typedef uintptr_t PTR;
-
-extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
-typedef HRESULT(__stdcall* Present)(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
-Present oPresent;
-HWND window = NULL;
-WNDPROC oWndProc;
-ID3D11Device* pDevice = NULL;
-ID3D11DeviceContext* pContext = NULL;
-ID3D11RenderTargetView* mainRenderTargetView;
+#include "Setup.h"
 
 #include "CheatDLL/Functionality/Hooks.h"
 #include "CheatDLL/Globals.h"
@@ -44,7 +33,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 {
     if (!init)
     {
-        // Tbh idk what this stuff does I didnt make this
         if (SUCCEEDED(pSwapChain->GetDevice(__uuidof(ID3D11Device), (void**)&pDevice)))
         {
             pDevice->GetImmediateContext(&pContext);
@@ -90,7 +78,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 
 DWORD WINAPI MainThread(LPVOID lpReserved)
 {
-
     bool InitHook = false;
     do
     {

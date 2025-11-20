@@ -26,12 +26,8 @@ void ImGuiProject::Cheat::StartHooks()
 
 
 
-    // This is the only thing you need to focus on here
-    MH_CreateHook((LPVOID)(base + /* OFFSET HERE!! */ 0x0), &ExampleHook, reinterpret_cast<LPVOID*>(&Old_ExampleHooker));
-
-
-
-
+    // You need to replace 0x0 with the correct RVA offset.
+    MH_CreateHook((LPVOID)(base + 0x0), &ExampleHook, reinterpret_cast<LPVOID*>(&Old_ExampleHooker));
 
     auto MinHookStatus = MH_EnableHook(MH_ALL_HOOKS);
     if (MinHookStatus != MH_OK) 
